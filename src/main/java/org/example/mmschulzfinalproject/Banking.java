@@ -23,7 +23,7 @@ public class Banking extends Application {
 
     public List<Customer> customers;
     public int currentCustomerIndex = 0;
-    private TextField accountNumberField = new TextField();
+    private TextField customerIdField = new TextField();
     private TextField firstNameField = new TextField();
     private TextField lastNameField = new TextField();
     private TextField phoneNumberField = new TextField();
@@ -46,8 +46,8 @@ public class Banking extends Application {
         vBox.setPadding(new Insets(25, 25, 25, 25));
 
         //first name
-        accountNumberField.setEditable(false);
-        vBox.getChildren().add(getField(accountNumberField, "Account Number"));
+        customerIdField.setEditable(false);
+        vBox.getChildren().add(getField(customerIdField, "Customer Id"));
         vBox.getChildren().add(getField(firstNameField, "First Name"));
         vBox.getChildren().add(getField(lastNameField, "Last Name"));
         vBox.getChildren().add(getField(phoneNumberField, "Phone Number"));
@@ -214,7 +214,7 @@ public class Banking extends Application {
 
     private void updateScreen(Customer customer) {
         System.out.println("Update Screen");
-        accountNumberField.setText(String.valueOf(customer.getAccountNumber()));
+        customerIdField.setText(String.valueOf(customer.getCustomerId()));
         firstNameField.setText(customer.getFirstName());
         lastNameField.setText(customer.getLastName());
         phoneNumberField.setText(customer.getPhoneNumber());
@@ -223,8 +223,8 @@ public class Banking extends Application {
 
     private Customer getCustomer() {
         Customer customer = new Customer();
-        if (!accountNumberField.getText().isEmpty()) {
-            customer.setAccountNumber(Integer.parseInt(accountNumberField.getText()));
+        if (!customerIdField.getText().isEmpty()) {
+            customer.setCustomerId(Integer.parseInt(customerIdField.getText()));
         }
         customer.setFirstName(firstNameField.getText());
         customer.setLastName(lastNameField.getText());

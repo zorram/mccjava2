@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="719e1b2c-9983-48c2-a947-cc1249979533" name="Changes" comment="initial check in">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Banking.sqbpro" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/AccountDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/982842e5-7b0a-436f-8f65-ebf9c9c3fce4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/982842e5-7b0a-436f-8f65-ebf9c9c3fce4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Banking.db" beforeDir="false" afterPath="$PROJECT_DIR$/Banking.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banking.sqbpro" beforeDir="false" afterPath="$PROJECT_DIR$/Banking.sqbpro" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Banking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Banking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/BankingDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/BankingDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Customer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +59,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.21159154&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;database.query.execution&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -84,7 +86,10 @@
       <workItem from="1708905102875" duration="752000" />
       <workItem from="1708906530558" duration="1658000" />
       <workItem from="1708909771502" duration="2688000" />
-      <workItem from="1708913257152" duration="7131000" />
+      <workItem from="1708913257152" duration="9399000" />
+      <workItem from="1708952919267" duration="1315000" />
+      <workItem from="1708954251470" duration="274000" />
+      <workItem from="1708954537122" duration="488000" />
     </task>
     <task id="LOCAL-00001" summary="initial check in">
       <option name="closed" value="true" />

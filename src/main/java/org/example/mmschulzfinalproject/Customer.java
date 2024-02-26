@@ -1,18 +1,19 @@
 package org.example.mmschulzfinalproject;
 
 public class Customer {
-    private int accountNumber;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String address;
+    private Account account;
 
-    public int getAccountNumber() {
-        return this.accountNumber;
+    public int getCustomerId() {
+        return this.customerId;
     }
 
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {
@@ -45,6 +46,12 @@ public class Customer {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+    public Account getAccount() {
+        return this.account;
+    }
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
 

@@ -2,6 +2,7 @@ package org.example.mmschulzfinalproject;
 
 import org.sqlite.SQLiteException;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,24 +15,44 @@ public class BankingDB {
 
     public static List<Customer> searchCustomer(Customer searchCustomer) {
         StringBuilder sql = new StringBuilder();
-        sql.append("SELECT Id, FirstName, LastName, PhoneNumber, Address FROM Customer ");
+        sql.append("SELECT Customer.Id, Customer.FirstName, Customer.LastName, Customer.PhoneNumber, Customer.Address, ");
+        sql.append("Account.Id as AccountId, Account.Balance, Account.InterestRate ");
+        sql.append("FROM Customer ");
+        sql.append("INNER JOIN Account ON Account.Id = Customer.AccountId ");
         sql.append("WHERE ");
         if (!searchCustomer.getFirstName().isEmpty()) {
-            sql.append("FirstName = '").append(searchCustomer.getFirstName()).append("'");
+            sql.append("Customer.FirstName = '").append(searchCustomer.getFirstName()).append("'");
         }
         System.out.println("SQL: " + sql.toString());
         try (Connection db = BankingDB.getConnection();
              Statement stmt = db.createStatement()) {
-                // Let us check if it returns a true Result Set or not.
                 ResultSet result = stmt.executeQuery(sql.toString());
                 List<Customer> customers = new ArrayList<Customer>();
+
+                System.out.println("result size: " + result.getFetchSize());
                 while (result.next()) {
                     Customer customer = new Customer();
-                    customer.setAccountNumber(result.getInt("Id"));
+                    customer.setCustomerId(result.getInt("Id"));
                     customer.setFirstName(result.getString("FirstName"));
                     customer.setLastName(result.getString("LastName"));
                     customer.setPhoneNumber(result.getString("PhoneNumber"));
                     customer.setAddress(result.getString("Address"));
+
+                    Account account = new Account();
+                    int accountId = result.getInt("AccountId");
+                    if (accountId > 0) {
+                        account.setId(accountId);
+                    }
+                    BigDecimal balance = result.getBigDecimal("Balance");
+                    if (balance != null) {
+                        account.setBalance(balance);
+                    }
+                    BigDecimal interestRate = result.getBigDecimal("InterestRate");
+                    if (interestRate != null) {
+                        account.setInterestRate(interestRate);
+                    }
+
+                    customer.setAccount(account);
                     customers.add(customer);
                 }
             return customers;
@@ -39,6 +60,8 @@ public class BankingDB {
             e.printStackTrace();
         } catch (SQLException e) {
             System.out.println(e.getMessage() + "\n");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -67,7 +90,7 @@ public class BankingDB {
             ps.setString(2, customer.getLastName());
             ps.setString(3, customer.getPhoneNumber());
             ps.setString(4, customer.getAddress());
-            ps.setInt(5, customer.getAccountNumber());
+            ps.setInt(5, customer.getCustomerId());
             ps.executeUpdate();
         } catch (SQLiteException e) {
             e.printStackTrace();

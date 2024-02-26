@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="719e1b2c-9983-48c2-a947-cc1249979533" name="Changes" comment="initial check in">
-      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/Banking.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/Banking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/HelloApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/HelloApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/HelloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/mmschulzfinalproject/hello-view.fxml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Banking.sqbpro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banking.db" beforeDir="false" afterPath="$PROJECT_DIR$/Banking.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Banking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/Banking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/BankingDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/mmschulzfinalproject/BankingDB.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,8 +43,10 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Banking.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/madison/Documents/JavaII/mccjava2-finalproject&quot;,
@@ -43,9 +55,17 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.21159154&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -62,7 +82,9 @@
       <option name="presentableId" value="Default" />
       <updated>1708905101815</updated>
       <workItem from="1708905102875" duration="752000" />
-      <workItem from="1708906530558" duration="741000" />
+      <workItem from="1708906530558" duration="1658000" />
+      <workItem from="1708909771502" duration="2688000" />
+      <workItem from="1708913257152" duration="7131000" />
     </task>
     <task id="LOCAL-00001" summary="initial check in">
       <option name="closed" value="true" />

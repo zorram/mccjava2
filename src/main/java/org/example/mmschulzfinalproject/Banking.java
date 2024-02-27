@@ -2,24 +2,23 @@ package org.example.mmschulzfinalproject;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.List;
 
 public class Banking extends Application {
-
-//Customer First Name
-//Customer Last Name
-//Address
-//Phone Number
 
     public List<Customer> customers;
     public int currentCustomerIndex = 0;
@@ -28,6 +27,10 @@ public class Banking extends Application {
     private TextField lastNameField = new TextField();
     private TextField phoneNumberField = new TextField();
     private TextField addressField = new TextField();
+    private TextField accountIdField = new TextField();
+    private TextField balanceField = new TextField();
+    private TextField interestRateField = new TextField();
+    private TextField withdrawDepositField = new TextField();
     private TextField interestMonthField = new TextField();
     private TextField calculatedInterestField = new TextField();
 
@@ -45,90 +48,97 @@ public class Banking extends Application {
         VBox vBox = new VBox(15);
         vBox.setPadding(new Insets(25, 25, 25, 25));
 
-        //first name
-        customerIdField.setEditable(false);
-        vBox.getChildren().add(getField(customerIdField, "Customer Id"));
-        vBox.getChildren().add(getField(firstNameField, "First Name"));
-        vBox.getChildren().add(getField(lastNameField, "Last Name"));
-        vBox.getChildren().add(getField(phoneNumberField, "Phone Number"));
-        vBox.getChildren().add(getField(addressField, "Address"));
-
-        //Interest Month
-        HBox interestMonthBox = new HBox(10);
-        interestMonthBox.setAlignment(Pos.BASELINE_RIGHT);
-        Label interestMonthLabel = new Label("Interest Month");
-        interestMonthField.setMinWidth(10);
-        interestMonthBox.getChildren().add(interestMonthLabel);
-        interestMonthField.setMinWidth(10);
-        interestMonthBox.getChildren().add(interestMonthField);
-        vBox.getChildren().add(interestMonthBox);
-
-        //Calculated Interest
-        HBox calculatedInterestBox = new HBox(10);
-        calculatedInterestBox.setAlignment(Pos.BASELINE_RIGHT);
-        Label calculatedInterestLabel = new Label("Calculated Interest");
-        calculatedInterestField.setMinWidth(10);
-        calculatedInterestBox.getChildren().add(calculatedInterestLabel);
-        calculatedInterestField.setMinWidth(10);
-        calculatedInterestBox.getChildren().add(calculatedInterestField);
-        vBox.getChildren().add(calculatedInterestBox);
-
         //buttons
-        HBox buttonBox = new HBox(20);
-        buttonBox.setAlignment(Pos.BASELINE_RIGHT);
-
-        Button searchCustomerButton = new Button("Search Customer");
+        Button searchCustomerButton = getButton("Search Customer");
         searchCustomerButton.setOnAction(event -> searchCustomerButtonClicked());
-        buttonBox.getChildren().add(searchCustomerButton);
 
-        this.previousCustomerButton = new Button("Previous Customer");
+        this.previousCustomerButton = getButton("Previous Customer");
         previousCustomerButton.setDisable(true);
         previousCustomerButton.setOnAction(event -> previousCustomerButtonClicked());
-        buttonBox.getChildren().add(previousCustomerButton);
 
-        this.nextCustomerButton = new Button("Next Customer");
+        this.nextCustomerButton = getButton("Next Customer");
         nextCustomerButton.setDisable(true);
         nextCustomerButton.setOnAction(event -> nextCustomerButtonClicked());
-        buttonBox.getChildren().add(nextCustomerButton);
 
-        Button addCustomerButton = new Button("Add Customer");
+        Button addCustomerButton = getButton("Add Customer");
         addCustomerButton.setOnAction(event -> addCustomerButtonClicked());
-        buttonBox.getChildren().add(addCustomerButton);
 
-        Button updateCustomerButton = new Button("Update Customer");
+        Button updateCustomerButton = getButton("Update Customer");
         updateCustomerButton.setOnAction(event -> updateCustomerButtonClicked());
-        buttonBox.getChildren().add(updateCustomerButton);
 
-        Button openAccountButton = new Button("Open Account");
+        Button openAccountButton = getButton("Open Account");
         openAccountButton.setDisable(true);
         openAccountButton.setOnAction(event -> openAccountButtonClicked());
-        buttonBox.getChildren().add(openAccountButton);
 
-        Button depositButton = new Button("Deposit");
-        depositButton.setDisable(true);
+        Button depositButton = getButton("Deposit");
         depositButton.setOnAction(event -> depositButtonClicked());
-        buttonBox.getChildren().add(depositButton);
 
-        Button withdrawButton = new Button("Withdraw");
-        withdrawButton.setDisable(true);
+        Button withdrawButton = getButton("Withdraw");
         withdrawButton.setOnAction(event -> withdrawButtonClicked());
-        buttonBox.getChildren().add(withdrawButton);
 
-        Button calculateInterestButton = new Button("Calculate Interest");
-        calculateInterestButton.setDisable(true);
-        calculateInterestButton.setOnAction(event -> calculateInterestButtonClicked());
-        buttonBox.getChildren().add(calculateInterestButton);
+        Button calculatedInterestButton = getButton("Calculate Interest");
+        calculatedInterestButton.setOnAction(event -> calculatedInterestButtonClicked());
 
-        Button exitButton = new Button("Exit");
+        Button exitButton = getButton("Exit");
         exitButton.setOnAction(event -> exitButtonClicked());
-        buttonBox.getChildren().add(exitButton);
 
+        TilePane tileButtons = new TilePane(Orientation.HORIZONTAL);
+        tileButtons.setPadding(new Insets(20, 10, 20, 0));
+        tileButtons.setHgap(10.0);
+        tileButtons.setVgap(8.0);
+        tileButtons.getChildren().addAll(
+                searchCustomerButton,
+                previousCustomerButton,
+                nextCustomerButton,
+                addCustomerButton,
+                updateCustomerButton,
+                openAccountButton,
+                depositButton,
+                withdrawButton,
+                calculatedInterestButton,
+                exitButton
+        );
 
-        vBox.getChildren().add(buttonBox);
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(12);
+
+        addRow(grid, "Customer Id", customerIdField);
+        addRow(grid, "First Name", firstNameField);
+        addRow(grid, "Last Name", lastNameField);
+        addRow(grid, "Phone Number", phoneNumberField);
+        addRow(grid, "Address", addressField);
+
+        addRow(grid, "Account Number", accountIdField);
+        addRow(grid, "Balance", balanceField);
+        addRow(grid, "Interest Rate", interestRateField);
+
+        addRow(grid, "Withdraw/Deposit", withdrawDepositField);
+
+        grid.add(new Label("Interest Month"), 3, 0);
+        grid.add(interestMonthField, 4, 0);
+
+        grid.add(new Label("Calculate Interest"), 3, 1);
+        grid.add(calculatedInterestField, 4, 1);
+
+        vBox.getChildren().add(grid);
+        vBox.getChildren().add(tileButtons);
 
         Scene scene = new Scene(vBox);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void addRow(GridPane grid, String label, TextField field) {
+        int rowCount = grid.getRowCount();
+        grid.add(new Label(label), 0, rowCount);
+        grid.add(field, 1, rowCount);
+    }
+
+    private Button getButton(String label) {
+        Button button = new Button(label);
+        button.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+        return button;
     }
 
     private HBox getField(TextField field, String label) {
@@ -184,7 +194,10 @@ public class Banking extends Application {
 
     private void addCustomerButtonClicked() {
         System.out.println("Add Customer Button Click");
-        BankingDB.addCustomer(getCustomer());
+        BankingDB.addAccountToCustomer(
+                BankingDB.addCustomer(getCustomer()),
+                AccountDB.addAccount(getAccount())
+        );
     }
 
     private void updateCustomerButtonClicked() {
@@ -198,14 +211,45 @@ public class Banking extends Application {
 
     private void depositButtonClicked() {
         System.out.println("Deposit");
+        if (withdrawDepositField.getText().isEmpty()) {
+            return;
+        }
+        Account account = getAccount();
+        account.setBalance(
+                account.getBalance().add(new BigDecimal(withdrawDepositField.getText()))
+        );
+        AccountDB.updateBalance(account);
+        updateScreen(
+                BankingDB.getCustomer(Integer.parseInt(customerIdField.getText()))
+        );
     }
 
     private void withdrawButtonClicked() {
         System.out.println("Withdraw");
+        if (withdrawDepositField.getText().isEmpty()) {
+            return;
+        }
+        Account account = getAccount();
+        account.setBalance(
+                account.getBalance().subtract(new BigDecimal(withdrawDepositField.getText()))
+        );
+        AccountDB.updateBalance(account);
+        updateScreen(
+                BankingDB.getCustomer(Integer.parseInt(customerIdField.getText()))
+        );
     }
 
-    private void calculateInterestButtonClicked() {
-        System.out.println("Calculate Interest");
+    private void calculatedInterestButtonClicked() {
+        System.out.println("Calculated Interest");
+        int month = Integer.parseInt(interestMonthField.getText());
+        BigDecimal interestRate = new BigDecimal(interestRateField.getText());
+        BigDecimal balance = new BigDecimal(balanceField.getText());
+        calculatedInterestField.setText(
+                interestRate.divide(new BigDecimal(100))
+                        .divide(new BigDecimal(month), 2)
+                        .multiply(balance)
+                        .toString()
+        );
     }
 
     private void exitButtonClicked() {
@@ -219,6 +263,13 @@ public class Banking extends Application {
         lastNameField.setText(customer.getLastName());
         phoneNumberField.setText(customer.getPhoneNumber());
         addressField.setText(customer.getAddress());
+        updateScreen(customer.getAccount());
+    }
+
+    private void updateScreen(Account account) {
+        accountIdField.setText(String.valueOf(account.getId()));
+        balanceField.setText(String.valueOf(account.getBalance()));
+        interestRateField.setText(String.valueOf(account.getInterestRate()));
     }
 
     private Customer getCustomer() {
@@ -231,5 +282,19 @@ public class Banking extends Application {
         customer.setPhoneNumber(phoneNumberField.getText());
         customer.setAddress(addressField.getText());
         return customer;
+    }
+    private Account getAccount() {
+        Account account = new Account();
+
+        if (!accountIdField.getText().isEmpty()) {
+            account.setId(Integer.parseInt(accountIdField.getText()));
+        }
+        if (!balanceField.getText().isEmpty()) {
+            account.setBalance(new BigDecimal(balanceField.getText()));
+        }
+        if (!interestRateField.getText().isEmpty()) {
+            account.setInterestRate(new BigDecimal(interestRateField.getText()));
+        }
+        return account;
     }
 }
